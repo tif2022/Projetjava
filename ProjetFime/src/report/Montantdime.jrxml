@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6a402304-36e7-4355-b3c8-e72e9c1dea9b">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="date1" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="date2" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     sum(montantHebdo) AS 'Dîmetotale'
+FROM
+     `dime` dime
+WHERE
+     dateVersement BETWEEN $P{date1} AND $P{date2}]]>
+	</queryString>
+	<field name="Dîmetotale" class="java.lang.Double"/>
+	<title>
+		<band height="116" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="20" width="30" height="35" uuid="ad5467ce-ed63-409e-b396-e60cff8706d2"/>
+				<imageExpression><![CDATA["C:\\Users\\Kluce\\Documents\\NetBeansProjects\\Gestiondime\\src\\report\\pentecote.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="93" y="3" width="340" height="52" uuid="dff66305-6d1d-4f71-a349-eefd242a608c"/>
+				<textElement>
+					<font fontName="Times New Roman" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[   EGLISE PENTECOTE INTERNATIONALE DE COTE D’IVOIRE
+                              DISTRICT DE BOUAKE EST
+                               ASSEMBLEE DE BETHEL 2
+
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="93" y="76" width="383" height="20" uuid="252df9d2-9989-485e-a5b9-d6401859b84b"/>
+				<textElement>
+					<font fontName="Arial Black" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MONTANT PERIODIQUE DE LA DIME  DE L'ASSEMBLEE]]></text>
+			</staticText>
+			<image>
+				<reportElement x="525" y="20" width="30" height="35" uuid="e5ebb022-3e9f-42fa-9a4a-b9939bb814c0"/>
+				<imageExpression><![CDATA["C:\\Users\\Kluce\\Documents\\NetBeansProjects\\Gestiondime\\src\\report\\pentecote.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="233" y="96" width="150" height="20" forecolor="#0000FF" uuid="9fffc97a-cf75-4857-aa5f-e5cf23bf738c"/>
+				<box>
+					<pen lineWidth="0.0" lineColor="#3399FF"/>
+					<topPen lineWidth="0.0" lineColor="#3399FF"/>
+					<leftPen lineWidth="0.0" lineColor="#3399FF"/>
+					<bottomPen lineWidth="0.0" lineColor="#3399FF"/>
+					<rightPen lineWidth="0.0" lineColor="#3399FF"/>
+				</box>
+				<textElement>
+					<font fontName="Times New Roman" size="12" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Montant périodique de la dîme]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="31" splitType="Stretch">
+			<textField>
+				<reportElement x="233" y="0" width="150" height="20" uuid="2f3798b5-f6d2-452d-ad01-5151eb8d82bf"/>
+				<textFieldExpression><![CDATA[$F{Dîmetotale}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="41" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="40" uuid="f49eab34-9198-40f9-b7f6-e78713269926"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[                                                                   Jésus-Christ, le salut de l'humanité
+                                                                          ASSEMBLEE DE BETHEL 2
+
+]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>
